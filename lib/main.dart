@@ -1,3 +1,4 @@
+import 'package:Flutter_GPT/screens/ChatScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'consts/global_colors.dart';
@@ -14,38 +15,35 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter 3.0.4 ',
+      // title: 'Flutter 3.0.4 ',
       theme: ThemeData(
-        scaffoldBackgroundColor: lightScaffoldColor,
+        scaffoldBackgroundColor: gptColor,
         primaryColor: lightCardColor,
         backgroundColor: lightBackgroundColor,
         appBarTheme: AppBarTheme(
           iconTheme: IconThemeData(
-            color: lightIconsColor,
+            color: gptColor,
           ),
-          backgroundColor: lightScaffoldColor,
+          backgroundColor: lightGptColor,
           centerTitle: true,
           titleTextStyle: TextStyle(
-              color: lightTextColor, fontSize: 22, fontWeight: FontWeight.bold),
+              color: gptColor, fontSize: 22, fontWeight: FontWeight.bold),
           elevation: 0,
         ),
         iconTheme: IconThemeData(
-          color: lightIconsColor,
+          color: gptColor,
         ),
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Colors.black,
           selectionColor: Colors.blue,
-
-          // selectionHandleColor: Colors.blue,
         ),
-        cardColor: lightCardColor,
         brightness: Brightness.light,
         colorScheme: ThemeData().colorScheme.copyWith(
-              secondary: lightIconsColor,
+              secondary: gptColor,
               brightness: Brightness.light,
             ),
       ),
-      home: const Text(""),
+      home: const ChatScreen(),
       // home: const HomeScreen(),
     );
   }
