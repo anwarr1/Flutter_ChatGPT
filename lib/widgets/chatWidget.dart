@@ -17,26 +17,7 @@ class chatWidget extends StatelessWidget {
   }
 }
 
-// Widget mssg(String question) {
-//   return Container(
-//     padding: EdgeInsets.all(5),
-//     child: Row(
-//       children: [
-//         const Image(
-//           image: AssetImage("assets/images/person.png"),
-//           width: 30,
-//           height: 50,
-//         ),
-//         const SizedBox(width: 10),
-//         Text(question,
-//             style: const TextStyle(
-//                 color: Colors.white,
-//                 fontWeight: FontWeight.w400,
-//                 fontSize: 15)),
-//       ],
-//     ),
-//   );
-// }
+
 
 Widget mssg(String answer, int chatIndex) {
   return Container(

@@ -1,13 +1,8 @@
-import 'dart:ui';
-
 import 'package:Flutter_GPT/consts/global_colors.dart';
 import 'package:Flutter_GPT/services/api_services.dart';
 import 'package:Flutter_GPT/services/services.dart';
 import 'package:Flutter_GPT/widgets/chatWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -20,8 +15,8 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
-    // TODO: implement initState
-    ApiService.getModels();
+    // ApiService.getModels();
+    ApiService.chat();
     super.initState();
   }
 

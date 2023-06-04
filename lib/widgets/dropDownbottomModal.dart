@@ -1,21 +1,24 @@
 import 'package:Flutter_GPT/consts/global_colors.dart';
 import 'package:Flutter_GPT/model/Model.dart';
+import 'package:Flutter_GPT/providers/modelsProvider.dart';
 import 'package:Flutter_GPT/services/api_services.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class dropDownModal extends StatefulWidget {
-  const dropDownModal({Key? key}) : super(key: key);
+class DropDownModal extends ConsumerStatefulWidget {
+  const DropDownModal({Key? key}) : super(key: key);
 
   @override
-  State<dropDownModal> createState() => _dropDownModalState();
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _DropDownModalState();
+  }
 }
 
-class _dropDownModalState extends State<dropDownModal> {
-  String item = items[0].value!;
+class _DropDownModalState extends ConsumerState<DropDownModal> {
   @override
   Widget build(BuildContext context) {
+    var item = ref.watch(currentModele.notifier);
+
     return FutureBuilder(
       future: ApiService.getModels(),
       builder: (context, snapshot) {
@@ -30,10 +33,11 @@ class _dropDownModalState extends State<dropDownModal> {
                       style: const TextStyle(color: Colors.white),
                     )))
                 .toList(),
-            value: "${(snapshot.data as List<Model>)[0].id}",
+            value: item.currentModel,
             onChanged: (value) {
+              // item = value.toString();
               setState(() {
-                item = "${(snapshot.data as List<Model>)[0].id}";
+              item.setCurrentModel(value.toString());
               });
             },
           );
